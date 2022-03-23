@@ -19,7 +19,7 @@ class AddTodo extends React.Component {
     //onButtonClick 함수 작성 - App 컴포넌트에서 add 함수를 props로 넘겨받아 사용
     onButtonClick = () => {
         this.add(this.state.item); //add 함수 사용
-        this.setSState({ item: { title: "" } });
+        this.setState({ item: { title: "" } });
     }
 
     //enterKeyEventHandler 함수 작성 - 키보드의 키 이벤트 발생 시 항상 실행(엔터키)
