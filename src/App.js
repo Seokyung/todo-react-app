@@ -5,6 +5,29 @@ import { Paper, List, Container } from "@material-ui/core";
 import './App.css';
 
 class App extends React.Component {
+  //componentDidMount() - 렌더링이 맨 처음 일어나고 마운팅 후 바로 부르는 함수
+  componentDidMount() {
+    const requestOptions = {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    };
+
+    fetch("http://localhost:8080/todo", requestOptions)
+    .then((response) => response.json())
+    .then(
+      (response) => {
+        this.setState({
+          items: response.data,
+        });
+      },
+      (error) => {
+        this.setState({
+          error,
+        });
+      }
+    );
+  }
+
   //App 컴포넌트 생성자 코드 - 생성자에서 props를 넘겨받고 this.state에서 item을 초기화해줌
   constructor(props) {
     super(props);
