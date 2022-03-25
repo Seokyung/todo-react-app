@@ -20,12 +20,14 @@ class AddTodo extends React.Component {
     onButtonClick = () => {
         this.add(this.state.item); //add 함수 사용
         this.setState({ item: { title: "" } });
+        console.log("Created item: ", this.state.item);
     }
 
     //enterKeyEventHandler 함수 작성 - 키보드의 키 이벤트 발생 시 항상 실행(엔터키)
     enterKeyEventHandler = (e) => {
         if (e.key === 'Enter') {
             this.onButtonClick(); //+버튼 클릭과 동일한 기능을 하므로 +버튼 클릭 함수 재사용함
+            console.log("Created item(Enter): ", this.state.item);
         }
     }
 

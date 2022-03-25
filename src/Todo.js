@@ -14,12 +14,14 @@ class Todo extends React.Component {
     constructor(props) {
         super(props); //super를 이용해 props 오브젝트 초기화
         this.state = { item: props.item, readOnly: true }; //this.state를 item변수와 props.item으로 초기화, readOnly 상태변수 추가
-        this.delete = props.delete;
+        this.delete = props.delete; //delete를 this.delete에 할당
+        this.update = props.update; //update를 this.update에 할당
     }
 
     //deleteEventHandler 함수
     deleteEventHandler = () => {
         this.delete(this.state.item) //this.state.item을 이용해 item 오브젝트에 접근
+        console.log("Deleted item: ", this.state.item);
     }
 
     //title 클릭 시 읽기모드가 해제되는 함수
@@ -34,7 +36,8 @@ class Todo extends React.Component {
     enterKeyEventHandler = (e) => {
         if (e.key === "Enter") {
             this.setState({ readOnly: true });
-            console.log("Enter-ReadOnly? ", this.state.readOnly)
+            this.update(this.state.item); //엔터를 누르면 저장
+            console.log("Updated item: ", this.state.item);
         }
     };
 
@@ -51,6 +54,7 @@ class Todo extends React.Component {
         const thisItem = this.state.item;
         thisItem.done = !thisItem.done;
         this.setState({ item: thisItem });
+        this.update(this.state.item); //체크박스가 변경되면 저장
         console.log("체크여부 : ", thisItem.done);
     }
 
