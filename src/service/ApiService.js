@@ -35,5 +35,22 @@ export function call(api, method, request) {
         window.location.href = "/login"; // redirect
       }
       return Promise.reject(error);
-    });
+    }
+  );
+}
+
+//signin 함수
+export function signin(userDTO) {
+  return call("/auth/signin", "POST", userDTO)
+    .then((response) => {
+      if (response.token) {
+        //token이 존재하는 경우 Todo 화면으로 리디렉트
+        window.location.href="/";
+        /*
+        console.log("response : ", response);
+        alert("로그인 토큰 : " + response.token);
+        */
+      }
+    }
+  );
 }
