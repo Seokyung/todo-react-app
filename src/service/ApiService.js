@@ -72,3 +72,8 @@ export function signout() {
   localStorage.setItem(ACCESS_TOKEN, null);
   window.location.href = "/login";
 }
+
+//signup 함수 (회원가입)
+export function signup(userDTO) {
+  return call("/auth/signup", "POST", userDTO);
+}

@@ -1,7 +1,7 @@
 //로그인 컴포넌트
 import React from "react";
 import { signin } from "./service/ApiService.js";
-import { TextField, Grid, Button, Typography, Container } from "@material-ui/core";
+import { TextField, Grid, Button, Typography, Container, Link } from "@material-ui/core";
 
 class Login extends React.Component {
     constructor(props) {
@@ -41,7 +41,7 @@ class Login extends React.Component {
                                 required
                                 fullWidth
                                 id="email"
-                                label="Input your email here"
+                                label="이메일"
                                 name="email"
                                 autoComplete="email"
                             />
@@ -52,8 +52,9 @@ class Login extends React.Component {
                                 required
                                 fullWidth
                                 id="password"
-                                label="Input your password here"
+                                label="비밀번호"
                                 name="password"
+                                type="password"
                                 autoComplete="current-password"
                             />
                         </Grid>
@@ -66,6 +67,13 @@ class Login extends React.Component {
                             >
                                 Login
                             </Button>
+                        </Grid>
+                        <Grid container justifyContent="flex-end">
+                            <Link href="/signup" variant="body2">
+                                <Grid item>
+                                    계정이 없다면 회원가입하세요.
+                                </Grid>
+                            </Link>
                         </Grid>
                     </Grid>
                 </form>
