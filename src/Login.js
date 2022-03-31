@@ -41,7 +41,7 @@ class Login extends React.Component {
                                 required
                                 fullWidth
                                 id="email"
-                                label="이메일 주소"
+                                label="Input your email here"
                                 name="email"
                                 autoComplete="email"
                             />
@@ -52,7 +52,7 @@ class Login extends React.Component {
                                 required
                                 fullWidth
                                 id="password"
-                                label="비밀번호"
+                                label="Input your password here"
                                 name="password"
                                 autoComplete="current-password"
                             />
@@ -64,7 +64,7 @@ class Login extends React.Component {
                                 variant="contained"
                                 color="primary"
                             >
-                                로그인
+                                Login
                             </Button>
                         </Grid>
                     </Grid>
